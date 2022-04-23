@@ -1,5 +1,5 @@
 .body {
-  background: linear-gradient(135deg, #000046, #1CB5E0);
+  background: linear-gradient(45deg, $bgcGradFirst, $bgcGradSecond);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat:wght@400;700&display=swap"
     rel="stylesheet">
+  <script src="https://kit.fontawesome.com/3e9510479e.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,18 +23,19 @@
       </header>
       <main class="exchange-window__main">
         <div class="currency-block">
-          <input type="number" class="currency-block__amount-first">
-          <select name="currency-first" id="currency-select-first">
+          <input type="number" class="currency-block__amount currency-block__amount--first" value=1 min="0">
+          <select class="currency-block__select currency-block__select--first">
             <option value="choose a currency ">Choose a currency</option>
           </select>
         </div>
+        <button class="currency-block__switch-ico"><i class="fa-solid fa-rotate"></i></button>
         <div class="currency-block">
-          <input type="number" class="currency-block__amount-second">
-          <select name="currency-second" id="currency-select-second">
+          <input type="number" class="currency-block__amount currency-block__amount--second" value=1 disabled>
+          <select class="currency-block__select currency-block__select--second">
             <option value="choose a currency ">Choose a currency</option>
           </select>
         </div>
-        <p class="rate-info"></p>
+        <p class="rate-info">1 PLN = 0257 USD</p>
       </main>
     </article>
   </section>
