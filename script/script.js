@@ -2,7 +2,7 @@ const firstAmount = document.querySelector('.currency-block__amount--first')
 const secondAmount = document.querySelector('.currency-block__amount--second')
 const firstSelect = document.querySelector('.currency-block__select--first')
 const secondSelect = document.querySelector('.currency-block__select--second')
-const switchBtn = document.querySelector('.currency-block__switch-ico')
+const swapBtn = document.querySelector('.currency-block__switch-ico')
 const rateInfo = document.querySelector('.rate-info')
 const currentExchangeRateList = []
 
@@ -14,9 +14,6 @@ const addCurrencyToList = (nodeList) => {
     nodeList.appendChild(newOption);
   })
 }
-
-addCurrencyToList(firstSelect)
-addCurrencyToList(secondSelect)
 
 const requestToApi = async () => {
   try {
@@ -36,6 +33,16 @@ const requestToApi = async () => {
   }
 }
 
+const swapCurrencies = () => {
+  [firstSelect.value, secondSelect.value] = [secondSelect.value, firstSelect.value];
+  requestToApi();
+}
+
+addCurrencyToList(firstSelect)
+addCurrencyToList(secondSelect)
+
 firstAmount.addEventListener('input', requestToApi)
 firstSelect.addEventListener('change', requestToApi)
 secondSelect.addEventListener('change', requestToApi)
+
+swapBtn.addEventListener('click', swapCurrencies)
