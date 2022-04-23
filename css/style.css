@@ -46,6 +46,7 @@
 }
 
 .wrapper__added {
+  position: relative;
   padding: 20px;
   margin-top: 0;
   margin-bottom: 25px;
@@ -145,14 +146,14 @@
   font-size: 1.2rem;
 }
 
-.fa-solid {
+.fa-rotate {
   font-size: 2rem;
   background: -webkit-linear-gradient(#6fe2ff 0% 50%, #000f99 50% 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.btn__add-exchange-window {
+.btn__add-exchange-window, .btn__remove-exchange-window {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -170,21 +171,36 @@
   background: linear-gradient(45deg, #000046, #1CB5E0);
 }
 
-.btn__add-exchange-window:focus, .btn__add-exchange-window:hover {
+.btn__add-exchange-window:focus, .btn__add-exchange-window:hover, .btn__remove-exchange-window:focus, .btn__remove-exchange-window:hover {
   outline: none;
   background: linear-gradient(135deg, rgba(0, 62, 121, 0.01), rgba(5, 0, 70, 0.4));
 }
 
-.btn__add-exchange-window:focus p,
-.btn__add-exchange-window:hover p {
+.btn__add-exchange-window:hover p, .btn__remove-exchange-window:hover p {
   -webkit-transform: rotateZ(90deg);
           transform: rotateZ(90deg);
 }
 
-.btn__add-exchange-window p {
+.btn__add-exchange-window p, .btn__remove-exchange-window p {
   font-size: 2.5rem;
   color: #dfdfdf;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+.btn__remove-exchange-window {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btn__remove-exchange-window:focus, .btn__remove-exchange-window:hover {
+  outline: none;
+  background: linear-gradient(135deg, rgba(0, 62, 121, 0.01), rgba(5, 0, 70, 0.4));
+}
+
+.fa-xmark {
+  font-size: 1.5rem;
+  color: #dfdfdf;
 }
 /*# sourceMappingURL=style.css.map */

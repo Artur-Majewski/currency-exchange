@@ -21,7 +21,7 @@ const requestToApi = async (firstC, secondC, firstA, secondA, rateT) => {
     const selectedSecondCurrency = secondC.value;
 
     if (selectedFirstCurrency === "choose a currency" ||selectedSecondCurrency === "choose a currency") return;
-    
+
     const res = await fetch(`https://api.exchangerate.host/latest?base=${selectedFirstCurrency}&symbols=${selectedSecondCurrency}`);
     const data = await res.json();
     const rate = Object.entries(data.rates)[0][1];
@@ -86,6 +86,15 @@ const createRateInfo = () => {
   return pElement
 }
 
+const createRemoveBtn = (artElement) => {
+  const removeBtnElement = document.createElement('button')
+  removeBtnElement.className = 'btn__remove-exchange-window'
+  removeBtnElement.innerHTML = '<i class="fa-solid fa-xmark"></i>'
+  removeBtnElement.addEventListener('click', () => artElement.remove())
+  return removeBtnElement
+}
+
+
 const addNewExchangeWindow = () => {
   if (firstSelect.value === "choose a currency" || secondSelect.value === "choose a currency") return;
 
@@ -122,7 +131,11 @@ const addNewExchangeWindow = () => {
   newMain.appendChild(newSwapBtn)
   newMain.appendChild(newBlockSecond);
   newMain.appendChild(newRateInfo);
+
+  const btnRemove = createRemoveBtn(newArticle);
+
   newArticle.appendChild(newMain);
+  newArticle.appendChild(btnRemove);
 
   document.body.appendChild(newArticle);
   requestToApi(newSelectFirst, newSelectSecond, newInputFirst, newInputSecond, newRateInfo)
