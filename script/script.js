@@ -20,14 +20,9 @@ const requestToApi = async (firstC, secondC, firstA, secondA, rateT) => {
     const selectedFirstCurrency = firstC.value;
     const selectedSecondCurrency = secondC.value;
 
-    if (
-      selectedFirstCurrency === "choose a currency" ||
-      selectedSecondCurrency === "choose a currency"
-    )
-      return;
-    const res = await fetch(
-      `https://api.exchangerate.host/latest?base=${selectedFirstCurrency}&symbols=${selectedSecondCurrency}`
-    );
+    if (selectedFirstCurrency === "choose a currency" ||selectedSecondCurrency === "choose a currency") return;
+    
+    const res = await fetch(`https://api.exchangerate.host/latest?base=${selectedFirstCurrency}&symbols=${selectedSecondCurrency}`);
     const data = await res.json();
     const rate = Object.entries(data.rates)[0][1];
 
@@ -66,12 +61,36 @@ const createSelect = (cssClassName) => {
   return selectElement;
 };
 
-const addNewExchangeWindow = () => {
-  const newarticle = document.createElement("article");
-  newarticle.className = "wrapper wrapper__added";
+const createArticle = () => {
+  const articleElement = document.createElement("article");
+  articleElement.className = "wrapper wrapper__added";
+  return articleElement
+}
 
-  const newMain = document.createElement("main");
-  newMain.className = "exchange-window__main";
+const createMain = () => {
+  const mainElement = document.createElement("main");
+  mainElement.className = "exchange-window__main";
+  return mainElement
+}
+
+const createSwapBtn = () => {
+  const buttonElement = document.createElement("button");
+  buttonElement.className = "currency-block__switch-ico";
+  buttonElement.innerHTML = '<i class="fa-solid fa-rotate"></i>'
+  return buttonElement
+}
+
+const createRateInfo = () => {
+  const pElement = document.createElement('p');
+  pElement.className = 'rate-info';
+  return pElement
+}
+
+const addNewExchangeWindow = () => {
+  if (firstSelect.value === "choose a currency" || secondSelect.value === "choose a currency") return;
+
+  const newArticle = createArticle();
+  const newMain = createMain();
 
   const newBlockFirst = createBlock();
   const newBlockSecond = createBlock();
@@ -84,12 +103,9 @@ const addNewExchangeWindow = () => {
   const newSelectSecond = createSelect("currency-block__select--second");
   newSelectSecond.value = secondSelect.value
 
-  const newSwapBtn = document.createElement("button");
-  newSwapBtn.className = "currency-block__switch-ico";
-  newSwapBtn.innerHTML = '<i class="fa-solid fa-rotate"></i>'
+  const newSwapBtn = createSwapBtn()
 
-  const newRateInfo = document.createElement('p');
-  newRateInfo.className = 'rate-info';
+  const newRateInfo = createRateInfo()
 
   newInputFirst.addEventListener("input", () => requestToApi(newSelectFirst, newSelectSecond, newInputFirst, newInputSecond, newRateInfo));
   newSelectFirst.addEventListener("change", () => requestToApi(newSelectFirst, newSelectSecond, newInputFirst, newInputSecond, newRateInfo));
@@ -99,7 +115,6 @@ const addNewExchangeWindow = () => {
 
   newBlockFirst.appendChild(newInputFirst);
   newBlockFirst.appendChild(newSelectFirst);
-
   newBlockSecond.appendChild(newInputSecond);
   newBlockSecond.appendChild(newSelectSecond);
 
@@ -107,9 +122,9 @@ const addNewExchangeWindow = () => {
   newMain.appendChild(newSwapBtn)
   newMain.appendChild(newBlockSecond);
   newMain.appendChild(newRateInfo);
-  newarticle.appendChild(newMain);
+  newArticle.appendChild(newMain);
 
-  document.body.appendChild(newarticle);
+  document.body.appendChild(newArticle);
   requestToApi(newSelectFirst, newSelectSecond, newInputFirst, newInputSecond, newRateInfo)
 };
 
