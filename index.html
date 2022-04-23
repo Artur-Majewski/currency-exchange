@@ -14,7 +14,29 @@
 </head>
 
 <body class="body">
-  <section class="wrapper"></section>
+  <section class="wrapper">
+    <article class="exchange-window">
+      <header class="exchange-window__header">
+        <h1 class="exchange-window__title">Simple exchnage rate app</h1>
+        <h2 class="exchange-window__subtitle">Check the current exchange rate</h2>
+      </header>
+      <main class="exchange-window__main">
+        <div class="currency-block">
+          <input type="number" class="currency-block__amount-first">
+          <select name="currency-first" id="currency-select-first">
+            <option value="choose a currency ">Choose a currency</option>
+          </select>
+        </div>
+        <div class="currency-block">
+          <input type="number" class="currency-block__amount-second">
+          <select name="currency-second" id="currency-select-second">
+            <option value="choose a currency ">Choose a currency</option>
+          </select>
+        </div>
+        <p class="rate-info"></p>
+      </main>
+    </article>
+  </section>
   <script src="script/script.js"></script>
 </body>
 
