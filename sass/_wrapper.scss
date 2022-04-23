@@ -4,8 +4,16 @@
   align-items: center;
   width: 800px;
   min-height: 100px;
-  margin: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border-radius: 15px;
   box-shadow: 0 0 15px  #1c232D;
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.15));
+
+  &__added {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
 }
+

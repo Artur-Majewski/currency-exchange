@@ -37,11 +37,18 @@
           align-items: center;
   width: 800px;
   min-height: 100px;
-  margin: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border-radius: 15px;
   -webkit-box-shadow: 0 0 15px  #1c232D;
           box-shadow: 0 0 15px  #1c232D;
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15));
+}
+
+.wrapper__added {
+  padding: 20px;
+  margin-top: 0;
+  margin-bottom: 25px;
 }
 
 .exchange-window {
@@ -131,7 +138,9 @@
 }
 
 .rate-info {
-  margin: 20px 20px 30px;
+  margin: 15px;
+  width: 100%;
+  text-align: center;
   font-weight: 700;
   font-size: 1.2rem;
 }
@@ -141,5 +150,41 @@
   background: -webkit-linear-gradient(#6fe2ff 0% 50%, #000f99 50% 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.btn__add-exchange-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(45deg, #000046, #1CB5E0);
+}
+
+.btn__add-exchange-window:focus, .btn__add-exchange-window:hover {
+  outline: none;
+  background: linear-gradient(135deg, rgba(0, 62, 121, 0.01), rgba(5, 0, 70, 0.4));
+}
+
+.btn__add-exchange-window:focus p,
+.btn__add-exchange-window:hover p {
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}
+
+.btn__add-exchange-window p {
+  font-size: 2.5rem;
+  color: #dfdfdf;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 /*# sourceMappingURL=style.css.map */
