@@ -13,7 +13,7 @@
     margin-bottom: 10px;
   }
 
-  &__main {
+  &__article {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -43,6 +43,7 @@
   &__select {
     padding: 10px 20px;
     font-size: 1.2rem;
+    text-align: center;
     cursor: pointer;
   }
 

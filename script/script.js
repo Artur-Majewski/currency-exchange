@@ -61,16 +61,16 @@ const createSelect = (cssClassName) => {
   return selectElement;
 };
 
-const createArticle = () => {
-  const articleElement = document.createElement("article");
+const createArticleWrapper = () => {
+  const articleElement = document.createElement("div");
   articleElement.className = "wrapper wrapper__added";
   return articleElement
 }
 
-const createMain = () => {
-  const mainElement = document.createElement("main");
-  mainElement.className = "exchange-window__main";
-  return mainElement
+const createArticle = () => {
+  const articleElement = document.createElement("article");
+  articleElement.className = "exchange-window__article";
+  return articleElement
 }
 
 const createSwapBtn = () => {
@@ -98,8 +98,8 @@ const createRemoveBtn = (artElement) => {
 const addNewExchangeWindow = () => {
   if (firstSelect.value === "choose a currency" || secondSelect.value === "choose a currency") return;
 
-  const newArticle = createArticle();
-  const newMain = createMain();
+  const newArticleWrapper = createArticleWrapper();
+  const newMArticle = createArticle();
 
   const newBlockFirst = createBlock();
   const newBlockSecond = createBlock();
@@ -127,17 +127,18 @@ const addNewExchangeWindow = () => {
   newBlockSecond.appendChild(newInputSecond);
   newBlockSecond.appendChild(newSelectSecond);
 
-  newMain.appendChild(newBlockFirst);
-  newMain.appendChild(newSwapBtn)
-  newMain.appendChild(newBlockSecond);
-  newMain.appendChild(newRateInfo);
+  newMArticle.appendChild(newBlockFirst);
+  newMArticle.appendChild(newSwapBtn)
+  newMArticle.appendChild(newBlockSecond);
+  newMArticle.appendChild(newRateInfo);
 
-  const btnRemove = createRemoveBtn(newArticle);
+  const btnRemove = createRemoveBtn(newArticleWrapper);
 
-  newArticle.appendChild(newMain);
-  newArticle.appendChild(btnRemove);
+  newArticleWrapper.appendChild(newMArticle);
+  newArticleWrapper.appendChild(btnRemove);
 
-  document.body.appendChild(newArticle);
+  // document.body.appendChild(newArticleWrapper);
+  document.querySelector('main').appendChild(newArticleWrapper);
   requestToApi(newSelectFirst, newSelectSecond, newInputFirst, newInputSecond, newRateInfo)
 };
 

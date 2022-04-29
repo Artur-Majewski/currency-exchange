@@ -15,33 +15,35 @@
 </head>
 
 <body class="body">
-  <section class="wrapper">
-    <article class="exchange-window">
-      <header class="exchange-window__header">
-        <h1 class="exchange-window__title">Simple exchnage rate app</h1>
-        <h2 class="exchange-window__subtitle">Check the current exchange rate</h2>
-      </header>
-      <main class="exchange-window__main">
-        <div class="currency-block">
-          <input type="number" class="currency-block__amount currency-block__amount--first" value=1 min="0">
-          <select class="currency-block__select currency-block__select--first">
-            <option value="choose a currency">Choose a currency</option>
-          </select>
-        </div>
-        <button class="currency-block__switch-ico"><i class="fa-solid fa-rotate"></i></button>
-        <div class="currency-block">
-          <input type="number" class="currency-block__amount currency-block__amount--second" disabled>
-          <select class="currency-block__select currency-block__select--second">
-            <option value="choose a currency">Choose a currency</option>
-          </select>
-        </div>
-        <p class="rate-info"></p>
-      </main>
-    </article>
-    <button class="btn__add-exchange-window"><p>+</p></button>
-  </section>
-
-  
+  <main>
+    <div class="wrapper">
+      <section class="exchange-window">
+        <header class="exchange-window__header">
+          <h1 class="exchange-window__title">Simple exchnage rate app</h1>
+          <h2 class="exchange-window__subtitle">Check the current exchange rate</h2>
+        </header>
+        <article class="exchange-window__article">
+          <div class="currency-block">
+            <input type="number" class="currency-block__amount currency-block__amount--first" value=1 min="0">
+            <select class="currency-block__select currency-block__select--first">
+              <option value="choose a currency">Choose a currency</option>
+            </select>
+          </div>
+          <button class="currency-block__switch-ico"><i class="fa-solid fa-rotate"></i></button>
+          <div class="currency-block">
+            <input type="number" class="currency-block__amount currency-block__amount--second" disabled>
+            <select class="currency-block__select currency-block__select--second">
+              <option value="choose a currency">Choose a currency</option>
+            </select>
+          </div>
+          <p class="rate-info"></p>
+        </article>
+      </section>
+      <button class="btn__add-exchange-window">
+        <p>+</p>
+      </button>
+    </div>
+  </main>
   <script src="script/data.js"></script>
   <script src="script/script.js"></script>
 </body>

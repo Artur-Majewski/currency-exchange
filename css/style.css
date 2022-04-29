@@ -68,7 +68,7 @@
   margin-bottom: 10px;
 }
 
-.exchange-window__main {
+.exchange-window__article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,6 +107,7 @@
 .currency-block__select {
   padding: 10px 20px;
   font-size: 1.2rem;
+  text-align: center;
   cursor: pointer;
 }
 
