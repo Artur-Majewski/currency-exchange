@@ -15,7 +15,7 @@
     background: linear-gradient(135deg, rgba(#003e79, 0.01), rgba(rgb(5, 0, 70), 0.4));
   }
 
-  &:hover p {
+  &:hover .fa-plus {
     transform: rotateZ(90deg);
   }
 
@@ -26,16 +26,16 @@
   }
 }
 
+.fa-plus {
+  font-size: 1.5rem;
+  color: #dfdfdf;
+  transition: 0.3s;
+}
+
 .btn__remove-exchange-window {
   position: absolute;
   top: 10px;
   right: 10px;
-
-  &:focus,
-  &:hover {
-    outline: none;
-    background: linear-gradient(135deg, rgba(#003e79, 0.01), rgba(rgb(5, 0, 70), 0.4));
-  }
 }
 
 .fa-xmark {
